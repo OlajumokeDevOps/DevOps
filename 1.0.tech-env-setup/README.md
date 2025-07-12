@@ -291,6 +291,17 @@ Sign in or create a new Amazon account: if you already have an Amazon account, y
 
 ![aws root user](img/13.0.aws-root-user.png)
 
+How to  add change to your remote repository
+1. Add to local terminal
+```bashgit add .
+```
+2. Commit changes
+```bashgit commit -m "Your commit message here"
+```
+3. Push changes to remote repository
+```bashgit push origin main
+``` 
+
 
 
 
