@@ -1,0 +1,6 @@
+{
+    "markdown.validate.enabled": true,
+    "markdown.validate.ignoredLinks": [
+        "2.0.centOS-logo.png"
+    ]
+}
