@@ -85,7 +85,7 @@ Use the '**pwd**' command to find the path of your current working directory. Th
 
 The 'pwd' command uses the following syntax:
 
-![img](img/pwd_syntax.png)
+![sudo-mkdir](img/4.0.sudo-mkdir.png)
 
 The Linux directory structure is hierarchical, starting from the root directory (/) at the top. The path returned by `pwd` shows the hierarchy of directories leading to your current location.
 
