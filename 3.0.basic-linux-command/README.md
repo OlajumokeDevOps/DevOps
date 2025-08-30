@@ -12,7 +12,7 @@ Linux commands are executed by entering text in the Terminal and pressing enter.
 
 The general syntax of a Linux command is as follows: (Try the commands used as example as you read along
 
-![n(img/command_syntax.png)
+![command-name](img/1.0.commandname.png)
 
 A command  may consist of options and parameters, but they are not always required. Options are usually preceded by a hyphen (-) or double hyphen (--), and they modify the behavior of the command. Parameters are the targets of the command, such as files or directories.
 
@@ -59,23 +59,23 @@ Sometimes, you need superiser privileges to create a folder in certain directori
 
 2. Try creating a folder in a restricted location. let's try to create a folder named **"example"** in in the /root directory which is reserved for the root user:
 
-![img]()
+![mkdir](img/2.0.mkdir.png)
 
 3. Observe the error message indicating that you do not have permission to create a folder in the /root directory.
 
-![img]()
+![mkdir-denied](img/3.0.mkdir-denied.png)
 
 This error occurs because the /root directory is owned by the root user, and regular users do not have permission to create folders there. As a regular user you donot have the necessary permissions to create directories in /'root'.
 
 4. Use sudo to successfully create a folder in the /root directory:
 
-![img]()
+![sudo-mkdir](img/4.0.sudo-mkdir.png)
 
 **Press Enter :** Because you now included '*sudo*' before the command, you will be prompted to enter your password. Type your password and press Enter.It will execute successfully without any error message. In some cases, you may be prompted to provide a password. If it does, and you know the password, simply provide it and the elevated permission will be used to create the folder.
 
 **Verify the folder's creation:** The command should succeed without errors. You can check the folder's existence by listing the contents of'/root' using the **'ls'** command.It should indicate that the folder named **"example"** has been created successfully.Though you may need to use sudo to list the contents of the /root directory as well, since it is a restricted area.
 
-![img]()
+![sudo-ls-root](img/5.0.sudo-ls-root.png)
 
 **Note:** Using sudo gives you significant power over your system, including the ability to change or delete crucial systems files. So, its wise to use it carefully and only when necessary.
 
@@ -85,9 +85,9 @@ Use the '**pwd**' command to find the path of your current working directory. Th
 
 The 'pwd' command uses the following syntax:
 
-![sudo-mkdir](img/4.0.sudo-mkdir.png)
+![pwd](img/6.0.pwd.png) 
 
-The Linux directory structure is hierarchical, starting from the root directory (/) at the top. The path returned by `pwd` shows the hierarchy of directories leading to your current location.
+Linux directory structure is hierarchical, starting from the root directory (/) at the top. The path returned by `pwd` shows the hierarchy of directories leading to your current location.
 
 After learning about the use of sudo, its crucial to understand how the linux filesystem is organized. This knowledge is fundermental when navigating through the system, managing files, and understanding where different types of files and directories reside.
 
@@ -105,7 +105,7 @@ You should use the **ls** command to list the contents of the root directory. Th
 
 To navigate through the Linux filesystem, you use the `cd` command, which stands for "change directory." This command allows you to move between directories in the filesystem. Let's say we want to navigate to the root filesystem on your server. Remember, the root filesystem is like the "C:" drive in Windows, where all the files and directories are organized. It is the starting point of folders and it is represented by '/' on Linux. To go to the root filesystem, simply type;
 
-![img](img/cd_root.png)
+![sudo-cd](img/7.0.sudo-cd.png)
 
 To confirm that you are there, use the **pwd** command to check where you are.
 
@@ -113,11 +113,11 @@ To list the files and directories on in the root filesystem, simply type **'sudo
 
 Below is my output, but yours may be slightly different depending on your system configuration:
 
-![img](img/ls_root.png)
+![ls-l](img/8.0.ls-l.png)
 
 If i want to navigate to the home directory, which is where user-specific files are stored, I can use the `cd` command followed by the path to the home directory. The home directory is typically located at `/home/username`, where "username" is your actual username on the system. If i want to navigate to any of the directories in the output, lets say the 'usr', then i can use the 'usr', then i can use the 'cd' command to enter that directory.
 
-![img](img/cd_usr.png)
+![sudo-cd-usr](img/9.0.sudo-cd-usr.png)
 
 Notice that the 'usr' has a '/' prefix. On Linux, navigation starts from the root.
 
@@ -133,33 +133,40 @@ To see other directories' content, type 'ls' followed by the desired path. For e
 Here are some options you can use with the `ls` command:
 | Option | Description |
 
-![img](img/ls_options.png)
+![ls-R](img/10.0.ls-R.png)
 
 **cat command**
 
 The **'cat'** command is used to display the contents of a file in the terminal. It can also be used to concatenate multiple files into one. 'Concatenate' means to join or combine files together. The `cat` command reads the contents of a file and outputs it to the terminal, allowing you to view the file's content without opening it in an editor.It's one of the most frequently used Linux commands. It lists, combines, and writes file content to the standard output (usually the terminal console). The name "cat" is short for "concatenate," which means to join or combine files together.To run the **'cat'** command, type cat followed by the name of the file you want to display and its extension. For example: 
 
-![img](img/cat_syntax.png)
+![os-release](img/11.0.sudo-cat.png)
 
 Displays the content of **'os-release'** file in the **'/etc/'** directory. The **'os-release'** file contains information about the operating system, such as its name, version, and other details.
 
-![img](img/cat_os_release.png)
+![os-release](img/12.0.os-release-prettyname.png)
 
 **cp command**
 
-Use the **'cp'** command to copy files and directories. The syntax is `cp [options] source destination`. For example, to copy a file named **'example.txt'** from the current directory to a directory named **'backup'**, you would use:**cp example.txt backup/**
+Use the **'cp'** command to copy files and directories and their contents. The syntax is `cp [options] source destination`. For example, to copy a file named **'example.txt'** from the current directory to a directory named **'backup'**, you would use:**cp example.txt backup/** 
+
+To copy one file from current directory to another, enter **cp** followed by the file name and the destination directory. For example:
+
+![cp-filename-txt-Documents](img/13.0.cp-filename.png)
 
 **cp filename.txt /home/ubuntu/Documents**
 This command copies the file **'filename.txt'** from the current directory to the **'/home/ubuntu/Documents'** directory. If you want to copy a directory and its contents, you can use the `-r` option (recursive) like this: `cp -r source_directory destination_directory`.
 
 To copy multiple files to a directory, you can specify the files followed by the destination directory. For example: `cp file1.txt file2.txt /home/ubuntu/Documents/`
+
+![cp-multiple-files](img/14.0.cp-multiple-files.png)
+
 To copy the content of a file to a new file in the same directory, enter **'cp'** followed by the source file and the destination file:
 
-![img](img/cp_syntax.png)
+![cp-filename](img/15.0.filename1-txt.png)
 
 To copy an entire directory, pass the -R flag before typing the source directory, followed by the destination directory. For example, to copy a directory named **'myfolder'** to another directory named **'backup'**, you would use: `cp -R myfolder backup/`
 
-![img](img/cp_directory.png)
+![cp-R](img/16.0.cp-R.png)
 
 **mv command**
 
@@ -167,11 +174,11 @@ The primary use of the mv command is to move and rename files and directories. A
 
 Simply type **'mv'** followed by the source file and the destination directory. For example, to move a file named **'example.txt'** to a directory named **'Documents'**, you would use: `mv example.txt Documents/`
 
-![img](img/mv_syntax.png)
+![mv-file](img/17.0.mv-file.png)
 
 You can also use the `mv` command to rename a file. For example, to rename **'oldname.txt'** to **'newname.txt'**, you would use: `mv oldname.txt newname.txt`
 
-![img](img/mv_rename.png)
+![cp-R](img/18.0.mv-old-file.png)
 
 **rm command**
 
@@ -179,32 +186,32 @@ The **'rm'** command is used to remove files and directories. Be cautious when u
 
 To remove a single file, simply type `rm` followed by the file name. For example, to remove a file named **'example.txt'**, you would use: `rm example.txt`
 
-![img](img/rm_syntax.png)
+![rm-file](img/19.0.rm-file.png)
 
 To remove multiple files at once, you can specify the file names separated by spaces. For example, to remove **'file1.txt'** and **'file2.txt'**, you would use: `rm file1.txt file2.txt`
 
-![img](img/rm_multiple_files.png)
+![rm-multiple-files](img/20.0.rm-multiple-files.png)
 
 Here are some acceptable options you can use with the `rm` command:
 
-![img](img/rm_options.png)
+![i-recursive](img/21.0.i-recursive.png)
 
 **Touch** command
 
 The touch command allows you to create an empty file or update the timestamp of an existing file. The syntax is `touch [options] file_name`. For example, to create a new file named **'newfile.txt'**, you would use: `touch newfile.txt`
 To create a new file, simply type `touch` followed by the desired file name. For example, to create a file named **'example.txt'**, you would use: `touch example.txt`
 
-![img](img/touch_syntax.png)
+![touch-command](img/22.0.touch-command.png)
 
 **find command**
 
 The **'find'** command is used to search for files and directories in a specified location. It can search based on various criteria, such as name, size, type, and more. The syntax is `find [path] [options] [expression]`. For example, to find all files named **'example.txt'** in the current directory and its subdirectories, you would use: `find . -name "example.txt"`Here is the syntax for the `find` command:
 
-![img](img/find_syntax.png)
+![find-option](img/23.0.find-option.png)
 
 For example, to find all files with the `.txt` extension in the current directory and its subdirectories, you would use: `find . -name "*.txt"`If you want to search for files in a specific directory, you can specify the path. For example, to find all files named **'example.txt'** in the **'/home/username/Documents'** directory, you would use: `find /home/username/Documents -name "example.txt"`If you want to look for a file called 'notes.txt' within the home directory and its subfolders, you can use the following command:
 
-![img](img/find_notes.png)
+![find-home](img/24.0.find-home.png)
 
 
 
